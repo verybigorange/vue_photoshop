@@ -11,7 +11,6 @@
 </script>
 
 <style lang="scss">
-
  body{
  
  }
