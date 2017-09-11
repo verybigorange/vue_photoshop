@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-      11122
+      111221333
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style >
- 
- 
+<style lang="scss">
+
+
 </style>
