@@ -1,7 +1,10 @@
 <template>
   <div id="wrapper">
       <head-page></head-page>
-      <slider-page></slider-page>
+      <div class="main">
+         <slider-page></slider-page>
+      </div>
+     
   </div>
 </template>
 
@@ -18,6 +21,13 @@ export default {
 </script>
 
 <style lang="scss">
-
+#wrapper{ 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  .main{
+    flex: 1;
+  }
+}
 
 </style>

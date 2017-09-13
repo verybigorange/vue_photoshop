@@ -12,6 +12,6 @@
 
 <style lang="scss">
  body{
- 
+   background: #262626;
  }
 </style>
