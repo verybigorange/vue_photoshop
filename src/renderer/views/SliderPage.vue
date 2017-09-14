@@ -43,6 +43,7 @@ export default {
 		box-sizing: border-box;
 		margin:5px 5px;
 		padding:10px 5px;
+		background: url("../assets/img/show.png") no-repeat 26px bottom;
 	}
 	.tool:hover{
 		background: #686666;

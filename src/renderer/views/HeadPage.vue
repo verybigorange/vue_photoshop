@@ -2,7 +2,13 @@
   <header class="head base_bgcolor">
       <div class="menu">
           <span class="iconfont icon-ps logo"></span>
-          <menu-select v-for="(item,index) in menuList" :menu="item" :key="item.title"></menu-select>
+          <menu-select  
+            :class="index == active?'active':''" 
+            v-for="(item,index) in menuList" 
+            :menu="item" :key="item.title"
+            @clicked="$store.commit('SETNEWACTIVE',index)"
+          >
+          </menu-select>
       </div>
   </header>
 </template>
@@ -18,7 +24,12 @@ export default {
   },
   data(){
     return {
-      menuList:menu
+      menuList:menu,
+    }
+  },
+  computed:{
+    active(){
+      return this.$store.state.active
     }
   }
 }

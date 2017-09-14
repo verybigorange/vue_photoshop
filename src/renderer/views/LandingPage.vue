@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="wrapper" @click="handleclick">
       <head-page></head-page>
       <div class="main">
          <slider-page></slider-page>
@@ -16,6 +16,15 @@ export default {
   components:{
     HeadPage,
     SliderPage
+  },
+  methods:{
+    handleclick(){
+
+      // 如果菜单下来展开，收起头部菜单的下拉
+      if(this.$store.active !== -1){
+        this.$store.commit("SETNEWACTIVE",-1);
+      }
+    }
   }
 }
 </script>

@@ -1,22 +1,26 @@
 <template>
-    <div class="menuItem" @click="show = !show">
-        <a href="javascript:;">{{menu.title}}</a>
-        <ul class="subMenu" v-if="show">
-            <li class="subMenuItem" :key="item.title" v-for="(item,index) in menu.subList">{{item.title}}</li>
+    <div class="menuItem"  @click.stop="$emit('clicked')">
+        <a href="javascript:;" >{{menu.title}}</a>
+        <ul class="subMenu"  >
+            <li class="subMenuItem" @click.stop="selected" :key="item.title" v-for="(item,index) in menu.subList">{{item.title}}</li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    props:['menu'],
+    props:['menu','tag'],
     data(){
-        return {
-            show:false,
-        }
+       return {
+
+       }
     },
     methods:{
-       
+      selected(){
+
+        // 收起下拉  
+        this.$store.commit("SETNEWACTIVE",-1);
+      }
     }
 }
 </script>
@@ -36,6 +40,7 @@ export default {
 }
 
 .subMenu{
+    display: none;
     position: absolute;
     left: 0;
     top:30px;
@@ -45,10 +50,19 @@ export default {
     font-size: 12px;
     overflow: hidden;
 }
+.active .subMenu{
+    display: block;
+}
+
 .subMenuItem{
         padding: 0 10px;
         height: 20px;
         line-height: 20px;
+        cursor: default;
+        &:hover{
+            background:#1fb0fd;
+            color: #fff;
+        }
     }
 </style>
 
