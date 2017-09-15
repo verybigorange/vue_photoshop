@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper" @click="handleclick">
+  <div id="wrapper" @click="handleclick" @contextmenu="handlecontextmenu">
       <head-page></head-page>
       <div class="main">
          <slider-page></slider-page>
@@ -19,10 +19,20 @@ export default {
   },
   methods:{
     handleclick(){
-
       // 如果菜单下来展开，收起头部菜单的下拉
       if(this.$store.active !== -1){
         this.$store.commit("SETNEWACTIVE",-1);
+      }
+      
+      //如果工具栏展开，收起工具栏
+      if(this.$store.showToolIndex !== -1){
+        this.$store.commit("SETSHOWTOOLINDEX",-1);
+      }
+    },
+    handlecontextmenu(){
+       //如果工具栏展开，收起工具栏
+      if(this.$store.showToolIndex !== -1){
+        this.$store.commit("SETSHOWTOOLINDEX",-1);
       }
     }
   }
