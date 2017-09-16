@@ -45,7 +45,7 @@ export default {
   flex-direction: column;
   flex-wrap: nowrap;
   .main{
-    flex: 1;
+    height: calc(100% - 34px);
   }
 }
 
