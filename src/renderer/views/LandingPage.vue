@@ -3,6 +3,7 @@
       <head-page></head-page>
       <div class="main">
          <slider-page></slider-page>
+         <handle-image-page></handle-image-page>
       </div>
      
   </div>
@@ -11,11 +12,13 @@
 <script>
 import HeadPage from "./HeadPage"
 import SliderPage from "./SliderPage"
+import HandleImagePage from "./HandleImagePage"
 
 export default {
   components:{
     HeadPage,
-    SliderPage
+    SliderPage,
+    HandleImagePage
   },
   methods:{
     handleclick(){
@@ -46,6 +49,8 @@ export default {
   flex-wrap: nowrap;
   .main{
     height: calc(100% - 34px);
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 

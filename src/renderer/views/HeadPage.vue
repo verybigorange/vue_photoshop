@@ -44,6 +44,7 @@ export default {
 .menu{
   height: 34px;
   line-height: 30px;
+  white-space: nowrap;
   .logo{
     font-size: 20px;
     color: #7fa9d2;

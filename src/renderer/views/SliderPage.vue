@@ -3,7 +3,7 @@
 		<ul class="tools">
 			<li @click.stop="toolClick(index)" @contextmenu.stop.prevent="handlecontextmenu(index)" v-for="(item,index) in tools" :key="item.showTool.text" class="iconfont tool" :class="[item.showTool.iconClass,{'tool-active':index==toolActie}]" :title="item.showTool.text">
 				<ul class="sub-tools base_bgcolor" :class="showToolIndex === index?'sub-tools-show':''">
-					<li class="sub-tool" v-for="(subItem,i) in item.children" :key="subItem.text" :class="subItem.iconClass" @click.stop="selsetSubTool">
+					<li class="sub-tool" v-for="(subItem,i) in item.children" :key="subItem.text" :class="subItem.iconClass" @click.stop="selsetSubTool(index,i)">
 						<span style="margin:0 10px;">{{subItem.text}}</span>
 						<span class="pull-right">{{item.shortcutKey}}</span>
 					</li>
@@ -15,10 +15,12 @@
 
 <script>
 import tools from "./data/tools"
+import utils from "utils/index"
+
 export default {
 	data() {
 		return {
-			tools: tools,
+		
 		}
 	},
 	computed: {
@@ -27,6 +29,9 @@ export default {
 		},
 		showToolIndex() {
 			return this.$store.state.showToolIndex
+		},
+		tools(){
+			return tools
 		}
 	},
 	methods: {
@@ -41,7 +46,9 @@ export default {
 			this.$store.commit('SETNEWTOOLACTIVE', index);
 		},
 		//从工具栏中选择工具
-		selsetSubTool() {
+		selsetSubTool(toolsIndex,subIndex) {
+			//切换工具
+			utils.deepCopy(tools[toolsIndex].showTool,tools[toolsIndex].children[subIndex]);
 			this.$store.commit('SETSHOWTOOLINDEX', -1);
 		}
 	}
