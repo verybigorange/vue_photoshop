@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <!-- 增加iconfoot字体 -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_412511_u5b8hwbc7op3nmi.css" />
     <title>vue_photoshop</title>
     <% if (htmlWebpackPlugin.options.nodeModules) { %>
       <!-- Add `node_modules/` to global paths so `require` works properly in development -->
@@ -9,6 +11,8 @@
         require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
       </script>
     <% } %>
+    <!-- 引入three.js -->
+    <script src="/src/renderer/assets/js/three.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -18,5 +22,6 @@
     </script>
 
     <!-- webpack builds are automatically injected -->
+    
   </body>
 </html>

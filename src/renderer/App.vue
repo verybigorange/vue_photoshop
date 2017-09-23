@@ -11,15 +11,14 @@
 </script>
 
 <style lang="scss">
-  html,body{
-    width: 100%;
-    height:100%;
-  }
-  /* CSS */
-   body{
-    #app{
-      background: red;
-      height: 2vh;
-    }
-  }
+ body{
+   background: #262626;
+ }
+ 
+// 滚动条样式
+::-webkit-scrollbar{width:15px;height: 10px;}
+::-webkit-scrollbar-track{background-color:#fff;}
+::-webkit-scrollbar-thumb{background-color:#ccc;}
+::-webkit-scrollbar-thumb:active {background-color:#00aff0}
+ 
 </style>

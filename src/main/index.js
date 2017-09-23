@@ -18,12 +18,16 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 600,
     useContentSize: true,
-    width: 1000
+    width: 1000,
+    // frame: false //隐藏主界面之外的全部内容
   })
 
   mainWindow.loadURL(winURL)
+
+  // 隐藏菜单
+  mainWindow.setMenu(null)
 
   mainWindow.on('closed', () => {
     mainWindow = null
