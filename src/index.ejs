@@ -11,6 +11,8 @@
         require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
       </script>
     <% } %>
+    <!-- 引入three.js -->
+    <script src="/src/renderer/assets/js/three.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -20,5 +22,6 @@
     </script>
 
     <!-- webpack builds are automatically injected -->
+    
   </body>
 </html>
