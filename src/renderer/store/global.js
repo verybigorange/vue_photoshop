@@ -5,7 +5,10 @@ export const state = {
   //侧栏工具的索引
   toolActive:-1,
   //侧栏展示隐藏工具的索引
-  showToolIndex:-1
+  showToolIndex:-1,
+  // 选择图片的input
+  imgUpLoad:"",
+
 }
 
 export const mutations = {
@@ -17,6 +20,9 @@ export const mutations = {
   },
   SETSHOWTOOLINDEX(state,newindex){
     state.showToolIndex = newindex;
+  },
+  SETIMGUPLOAD(state,dom){
+    state.imgUpLoad = dom;
   },
 }
 

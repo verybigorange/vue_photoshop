@@ -2,7 +2,7 @@
     <div class="menuItem"  @click.stop="$emit('clicked')">
         <a href="javascript:;" >{{menu.title}}</a>
         <ul class="subMenu"  >
-            <li class="subMenuItem" @click.stop="selected" :key="item.title" v-for="(item,index) in menu.subList">{{item.title}}</li>
+            <li class="subMenuItem" @click.stop="selected(item.action)" :key="item.title" v-for="(item,index) in menu.subList">{{item.title}}</li>
         </ul>
     </div>
 </template>
@@ -16,10 +16,13 @@ export default {
        }
     },
     methods:{
-      selected(){
-
+      selected(action){
         // 收起下拉  
         this.$store.commit("SETNEWACTIVE",-1);
+
+        //触发选项业务逻辑
+        this.$store.dispatch(action);
+
       }
     }
 }

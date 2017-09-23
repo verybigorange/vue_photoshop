@@ -6,7 +6,8 @@ export default [
                 title:'新建'
             },
             {
-                title:'打开'
+                title:'打开',
+                action:'headMenu/selectMenu'
             },
             {
                 title:'存储'
