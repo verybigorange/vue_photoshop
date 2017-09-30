@@ -10,7 +10,6 @@ export default {
     mounted(){
         // 将上传图片的input放在store里
         this.$store.commit('SETIMGUPLOAD',this.$refs.imgUpLoad)
-        
     }
   
 }
@@ -18,7 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .handle-image{
-    // text-align: center;
+    overflow: hidden;
     color: #fff;
     flex-grow: 1;
     display: flex;
