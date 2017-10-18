@@ -7,7 +7,7 @@ export default [
             },
             {
                 title:'打开',
-                action:'headMenu/selectMenu'
+                action:'headMenu/open'
             },
             {
                 title:'存储'
