@@ -18,7 +18,7 @@ function open(store) {
                 this.parentNode.appendChild(container);
                 img.onload = function () {
                     imgSource = this
-                    initCanvas.call(store,container)
+                    initCanvas(container)
                 }
 
             } else {
@@ -35,8 +35,6 @@ function initCanvas(container) {
     canvas = document.createElement('canvas');
     box = document.querySelector(".handle-image");
     cx = canvas.getContext('2d');
-    //将canvas上下文挂在vuex上。
-    this.commit("SETCTX",cx);
     container.removeChild(imgSource);
     container.appendChild(canvas);
     drawImage()

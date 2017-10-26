@@ -8,8 +8,6 @@ export const state = {
   showToolIndex:-1,
   // 选择图片的input
   imgUpLoad:"",
-  //画布的上下文
-  ctx:"",
 
 }
 
@@ -26,9 +24,6 @@ export const mutations = {
   SETIMGUPLOAD(state,dom){
     state.imgUpLoad = dom;
   },
-  SETCTX(state,val){
-    state.ctx = val;
-  }
 }
 
 export const actions = {
