@@ -17,12 +17,14 @@ export default [{
     {
         showTool: {
             text: "矩形选框工具",
-            iconClass: "icon-kuangxuan"
+            iconClass: "icon-kuangxuan",
+            action:'sliderTool/rect_select_tool'
         },
         shortcutKey: "M",
         children: [{
                 text: "矩形选框工具",
-                iconClass: "icon-kuangxuan"
+                iconClass: "icon-kuangxuan",
+                action:'sliderTool/rect_select_tool'
             },
             {
                 text: "椭圆选框工具",

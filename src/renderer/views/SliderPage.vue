@@ -38,17 +38,23 @@ export default {
 		//点击工具
 		toolClick(index) {
 			this.$store.commit('SETNEWTOOLACTIVE', index);
+			//激活当前选择的工具状态
+			this.$store.commit('SETTOOLACTION',tools[index]['showTool']['action']);
 			this.$store.commit('SETSHOWTOOLINDEX', -1);
 		},
+
 		//点击右键暂开工具栏
 		handlecontextmenu(index) {
 			this.$store.commit('SETSHOWTOOLINDEX', index);
 			this.$store.commit('SETNEWTOOLACTIVE', index);
 		},
+
 		//从工具栏中选择工具
 		selsetSubTool(toolsIndex,subIndex) {
 			//切换工具
 			utils.deepCopy(tools[toolsIndex].showTool,tools[toolsIndex].children[subIndex]);
+			//激活当前选择的工具状态
+			this.$store.commit('SETTOOLACTION',tools[toolsIndex]['children'][subIndex]['action']);
 			this.$store.commit('SETSHOWTOOLINDEX', -1);
 		}
 	}

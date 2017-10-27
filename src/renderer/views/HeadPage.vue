@@ -40,7 +40,6 @@ export default {
   background: #535353;
   padding:0 10px;
 }
-
 .menu{
   height: 34px;
   line-height: 30px;

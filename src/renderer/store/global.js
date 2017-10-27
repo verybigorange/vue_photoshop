@@ -6,6 +6,8 @@ export const state = {
   toolActive:-1,
   //侧栏展示隐藏工具的索引
   showToolIndex:-1,
+  //侧栏工具的action名字
+  toolAction:'',
   // 选择图片的input
   imgUpLoad:"",
   //画布的上下文
@@ -28,6 +30,9 @@ export const mutations = {
   },
   SETCTX(state,val){
     state.ctx = val;
+  },
+  SETTOOLACTION(state,name){
+    state.toolAction = name;
   }
 }
 
