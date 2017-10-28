@@ -1,6 +1,7 @@
-let cx, canvas, imgSource, box
+let cx, canvas, imgSource, box, st
 // 用fileReader读取本地的图片信息,加到页面上
 function open(store) {
+    st = store;
     const file = this.files[0];
     if (window.FileReader) {
         const fr = new FileReader();
@@ -42,24 +43,32 @@ function initCanvas(container) {
     container.removeChild(imgSource);
     container.appendChild(canvas);
     this.commit("ADDLAYER",canvas);
-    drawImage()
+    draw.call(this)
 }
 
 //根据容器设置canvas画布的宽高，并把图像加入canvas中
-function drawImage() {
-    try {
-        canvas.width = box.offsetWidth;
-        canvas.height = box.offsetHeight;
-        cx.clearRect(0, 0, canvas.width, canvas.height);
-        cx.drawImage(imgSource, canvas.width / 2 - imgSource.width / 2, canvas.height / 2 - imgSource.height / 2);
-    } catch (err) {
-
+function draw() {
+    const layer = this.state.layer;
+    for(let item of layer){
+        try {
+            item.width = box.offsetWidth;
+            item.height = box.offsetHeight;
+            //为第一个图片图层的时候清空重置。
+            if(item.id === 'pic_layer'){
+                cx.clearRect(0, 0, item.width, item.height);
+                cx.drawImage(imgSource, item.width / 2 - imgSource.width / 2, item.height / 2 - imgSource.height / 2);
+            }
+           
+        } catch (err) {
+    
+        }
     }
+   
 }
 
-//窗口大小发生变化时候，重置canvas元素
+//窗口大小发生变化时候，重置所有的canvas画布大小
 document.body.onresize = function () {
-    drawImage()
+    draw.call(st)
 }
 
 export default open;
