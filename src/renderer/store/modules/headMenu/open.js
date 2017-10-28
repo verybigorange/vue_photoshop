@@ -33,12 +33,15 @@ function open(store) {
 //初始化canvas
 function initCanvas(container) {
     canvas = document.createElement('canvas');
+    // 用id给图层命名
+    canvas.id = 'pic_layer';
     box = document.querySelector(".handle-image");
     cx = canvas.getContext('2d');
     //将canvas上下文挂在vuex上。
-    this.commit("SETCTX",cx);
+    this.commit("SETCTX",{key:"pic_layer",ctx:cx});
     container.removeChild(imgSource);
     container.appendChild(canvas);
+    this.commit("ADDLAYER",canvas);
     drawImage()
 }
 
